@@ -4,119 +4,88 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Robert Andrés Paredes Garzón | Portafolio</title>
-  <meta name="description" content="Portafolio de Robert Andrés Paredes Garzón (andyyyia) — Estudiante de Ingeniería de Software (UTA). Backend, Frontend, IA, Arquitectura de Datos, Web y Móvil." />
+  <meta name="description" content="Portafolio de Robert Andrés Paredes Garzón (andyyyia) — Ingeniería de Software UTA. Backend, Frontend, IA, Arquitectura de Datos, Web y Móvil." />
   <meta name="author" content="Robert Andrés Paredes Garzón" />
   <link rel="canonical" href="https://andyyyia.github.io/" />
-
-  <!-- Social -->
   <meta property="og:title" content="Robert Andrés Paredes Garzón | Portafolio" />
-  <meta property="og:description" content="Estudiante de Ing. de Software (UTA). Backend & Frontend. Intereses: IA, arquitectura de datos, web y móviles." />
+  <meta property="og:description" content="Ing. de Software (UTA). Backend & Frontend. Intereses: IA, arquitectura de datos, web y móviles." />
   <meta property="og:type" content="website" />
 
   <style>
-    /* ===== Diseño base elegante y claro ===== */
+    /* ===== Tema CLARO con alto contraste ===== */
     :root{
-      --fg:#1f2328;
-      --bg:#0d1117;                /* Fondo oscuro pro */
-      --muted:#9da7b3;
-      --accent:#7c3aed;            /* Morado elegante */
-      --accent2:#22d3ee;           /* Cian */
-      --card:#10151c;
-      --border:#263241;
-      --ring: 0 0 0 2px rgba(124,58,237,.35);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      color-scheme: dark;
-    }
-    @media (prefers-color-scheme: light){
-      :root{
-        --fg:#1f2328; --bg:#ffffff; --muted:#57606a;
-        --accent:#7c3aed; --accent2:#0891b2;
-        --card:#f7f7fb; --border:#e5e7eb;
-        --shadow: 0 10px 25px rgba(17,24,39,.08);
-      }
+      --bg:#ffffff;
+      --fg:#0f172a;       /* Slate-900 (casi negro) */
+      --muted:#475569;    /* Slate-600 (texto secundario) */
+      --accent:#2563eb;   /* Azul accesible */
+      --accent-contrast:#ffffff;
+      --card:#f8fafc;     /* Slate-50 */
+      --border:#e2e8f0;   /* Slate-200 */
+      --shadow:0 10px 24px rgba(15,23,42,.06);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial;
-      color:var(--fg); background:radial-gradient(1200px 600px at 10% -10%,rgba(124,58,237,.25),transparent 60%),
-                        radial-gradient(1200px 800px at 110% 10%,rgba(34,211,238,.18),transparent 60%),
-                        var(--bg);
+      margin:0;
+      color:var(--fg);
+      background:var(--bg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial;
       line-height:1.6;
+      color-scheme: light; /* Fuerza tema claro */
     }
-    a{color:var(--accent2); text-decoration:none}
-    a:hover{text-decoration:underline}
+    .skip-link{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{left:16px; top:16px; width:auto; height:auto; padding:.5rem .75rem; background:#fff; border:2px solid var(--accent); border-radius:.5rem; z-index:1000}
+
+    a{color:var(--accent); text-decoration:underline; text-underline-offset:2px}
+    a:hover{text-decoration:none}
+    a:focus-visible, .btn:focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:10px }
+
     .wrap{max-width:1040px; margin:0 auto; padding:24px}
-    header{padding-top:40px; padding-bottom:8px}
-    .hero{
-      display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;
-    }
+    header{padding-top:36px; padding-bottom:8px}
     .brand{
-      padding:12px 16px; border:1px solid var(--border); border-radius:999px;
-      background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);
-      backdrop-filter: blur(6px);
-      font-size:.95rem; color:var(--muted)
+      display:inline-block; font-size:.95rem; color:var(--muted);
+      border:1px solid var(--border); background:#fff; border-radius:999px; padding:8px 12px;
     }
-    h1{
-      font-size:clamp(28px,4.6vw,44px); margin:.35rem 0 .2rem; letter-spacing:.2px;
-      background: linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip: text; background-clip: text; color:transparent;
+    h1{font-size:clamp(28px,4.2vw,44px); margin:.5rem 0 .25rem}
+    .lead{color:var(--muted); margin:.25rem 0 0}
+    .divider{height:3px; width:100%; margin:18px 0 8px; background:var(--border); border-radius:3px}
+
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:.6rem}
+    .btn{
+      display:inline-block; font-weight:600; text-decoration:none;
+      border:1px solid var(--border); border-radius:12px; padding:.6rem .9rem;
+      background:#fff; color:var(--accent);
+      box-shadow:var(--shadow);
     }
-    .lead{color:var(--muted); margin:0}
-    .divider{
-      height:3px; width:100%; margin:22px 0 8px;
-      background: linear-gradient(90deg,var(--accent),transparent);
-      border-radius:3px;
-    }
+    .btn.primary{ background:var(--accent); color:var(--accent-contrast); border-color:var(--accent) }
+    .btn:hover{transform:translateY(-1px)}
+    .btn{transition:transform .12s ease}
+
     main{padding:10px 0 24px}
     .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
     .card{
-      background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);
-      border:1px solid var(--border); border-radius:16px; padding:18px 18px;
-      box-shadow:var(--shadow); transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:var(--shadow);
     }
-    .card:hover{ transform:translateY(-3px); border-color: rgba(124,58,237,.45) }
-    h2{margin:.25rem 0 1rem; font-size:1.1rem; letter-spacing:.3px; color:#e6edf3}
+    h2{margin:.25rem 0 1rem; font-size:1.15rem}
     .pill{
-      display:inline-block; padding:.38rem .7rem; border:1px solid var(--border);
-      border-radius:999px; margin:.25rem .35rem .25rem 0; font-size:.93rem; color:#dbeafe;
-      background: rgba(124,58,237,.10);
+      display:inline-block; padding:.4rem .72rem; border:1px solid var(--border);
+      border-radius:999px; margin:.25rem .35rem .25rem 0; font-size:.93rem; color:#0b1220; background:#eef2ff; /* azul MUY claro */
     }
     ul{padding-left:1.1rem; margin:.25rem 0}
     .meta{color:var(--muted)}
-    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:.5rem}
-    .btn{
-      display:inline-block; padding:.6rem .9rem; border-radius:12px; font-weight:600;
-      border:1px solid var(--border);
-      background: linear-gradient(180deg,rgba(124,58,237,.18),rgba(124,58,237,.06));
-    }
-    .btn:hover{ box-shadow: var(--ring) }
-    .btn.ghost{ background:transparent }
-    footer{margin:26px 0 40px; color:var(--muted)}
-    .footer-inner{max-width:1040px; margin:0 auto; padding:0 24px}
-    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; padding:.08rem .35rem; border:1px solid var(--border); border-radius:6px; background:rgba(255,255,255,.04)}
-    /* Accesibilidad motion */
-    @media (prefers-reduced-motion: reduce){
-      .card, .btn{ transition:none }
-    }
-  </style>
 
-  <!-- Schema (limpio) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Robert Andrés Paredes Garzón",
-    "url":"https://andyyyia.github.io/",
-    "email":"mailto:andresparedesg.ap@gmail.com",
-    "address":{"@type":"PostalAddress","addressLocality":"Ambato","addressRegion":"Tungurahua","addressCountry":"EC"},
-    "alumniOf":"Universidad Técnica de Ambato",
-    "knowsAbout":["Backend","Frontend","Inteligencia Artificial","Arquitectura de Datos","Desarrollo Web","Desarrollo Móvil"],
-    "sameAs":["https://github.com/andyyyia","https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/"]
-  }
-  </script>
+    footer{margin:28px 0 40px; color:var(--muted)}
+    .footer-inner{max-width:1040px; margin:0 auto; padding:0 24px}
+  </style>
 </head>
 <body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <div class="wrap">
     <header>
       <div class="brand">Ambato, Ecuador • Estudiante de Ingeniería de Software — UTA</div>
@@ -124,13 +93,13 @@
       <p class="lead">Backend & Frontend · IA · Arquitectura de Datos · Web & Móvil</p>
       <div class="divider"></div>
       <div class="btns">
-        <a class="btn" href="mailto:andresparedesg.ap@gmail.com">📧 Contactar</a>
-        <a class="btn ghost" href="https://github.com/andyyyia">GitHub</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/">LinkedIn</a>
+        <a class="btn primary" href="mailto:andresparedesg.ap@gmail.com">📧 Contactar</a>
+        <a class="btn" href="https://github.com/andyyyia">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/">LinkedIn</a>
       </div>
     </header>
 
-    <main>
+    <main id="contenido">
       <section class="grid" aria-label="Contenido principal">
         <article class="card">
           <h2>Sobre mí</h2>
@@ -175,9 +144,9 @@
         <article class="card">
           <h2>Contacto</h2>
           <p>
-            <a href="mailto:andresparedesg.ap@gmail.com" class="kbd">andresparedesg.ap@gmail.com</a> ·
-            <a href="https://github.com/andyyyia" class="kbd">GitHub</a> ·
-            <a href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/" class="kbd">LinkedIn</a>
+            <a href="mailto:andresparedesg.ap@gmail.com">andresparedesg.ap@gmail.com</a> ·
+            <a href="https://github.com/andyyyia">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/">LinkedIn</a>
           </p>
         </article>
       </section>
