@@ -10,35 +10,98 @@
 
   <!-- Social -->
   <meta property="og:title" content="Robert Andrés Paredes Garzón | Portafolio" />
-  <meta property="og:description" content="Estudiante de Ing. de Software (4.º semestre, UTA). Backend & Frontend. Intereses: IA, arquitectura de datos, web y móviles." />
+  <meta property="og:description" content="Estudiante de Ing. de Software (UTA). Backend & Frontend. Intereses: IA, arquitectura de datos, web y móviles." />
   <meta property="og:type" content="website" />
 
   <style>
+    /* ===== Diseño base elegante y claro ===== */
     :root{
-      --fg:#1f2328; --bg:#ffffff; --muted:#57606a; --accent:#0969da; --card:#f6f8fa; --border:#d0d7de;
+      --fg:#1f2328;
+      --bg:#0d1117;                /* Fondo oscuro pro */
+      --muted:#9da7b3;
+      --accent:#7c3aed;            /* Morado elegante */
+      --accent2:#22d3ee;           /* Cian */
+      --card:#10151c;
+      --border:#263241;
+      --ring: 0 0 0 2px rgba(124,58,237,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      color-scheme: dark;
     }
-    @media (prefers-color-scheme: dark){
-      :root{ --fg:#e6edf3; --bg:#0d1117; --muted:#9da7b3; --accent:#2f81f7; --card:#161b22; --border:#30363d; }
+    @media (prefers-color-scheme: light){
+      :root{
+        --fg:#1f2328; --bg:#ffffff; --muted:#57606a;
+        --accent:#7c3aed; --accent2:#0891b2;
+        --card:#f7f7fb; --border:#e5e7eb;
+        --shadow: 0 10px 25px rgba(17,24,39,.08);
+      }
     }
     *{box-sizing:border-box}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial; color:var(--fg); background:var(--bg); line-height:1.6}
-    header{max-width:960px; margin:40px auto 0; padding:0 16px}
-    main{max-width:960px; margin:0 auto; padding:16px}
-    h1{font-size:clamp(28px,4vw,40px); margin:.2rem 0}
-    h2{margin:2rem 0 .75rem}
-    p.lead{color:var(--muted); margin:.25rem 0 0}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px}
-    .grid{display:grid; gap:16px}
-    .grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .pill{display:inline-block; padding:.35rem .7rem; border:1px solid var(--border); border-radius:999px; margin:.25rem .35rem .25rem 0; font-size:.95rem}
-    a{color:var(--accent); text-decoration:none}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial;
+      color:var(--fg); background:radial-gradient(1200px 600px at 10% -10%,rgba(124,58,237,.25),transparent 60%),
+                        radial-gradient(1200px 800px at 110% 10%,rgba(34,211,238,.18),transparent 60%),
+                        var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--accent2); text-decoration:none}
     a:hover{text-decoration:underline}
+    .wrap{max-width:1040px; margin:0 auto; padding:24px}
+    header{padding-top:40px; padding-bottom:8px}
+    .hero{
+      display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;
+    }
+    .brand{
+      padding:12px 16px; border:1px solid var(--border); border-radius:999px;
+      background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);
+      backdrop-filter: blur(6px);
+      font-size:.95rem; color:var(--muted)
+    }
+    h1{
+      font-size:clamp(28px,4.6vw,44px); margin:.35rem 0 .2rem; letter-spacing:.2px;
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip: text; background-clip: text; color:transparent;
+    }
+    .lead{color:var(--muted); margin:0}
+    .divider{
+      height:3px; width:100%; margin:22px 0 8px;
+      background: linear-gradient(90deg,var(--accent),transparent);
+      border-radius:3px;
+    }
+    main{padding:10px 0 24px}
+    .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);
+      border:1px solid var(--border); border-radius:16px; padding:18px 18px;
+      box-shadow:var(--shadow); transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    }
+    .card:hover{ transform:translateY(-3px); border-color: rgba(124,58,237,.45) }
+    h2{margin:.25rem 0 1rem; font-size:1.1rem; letter-spacing:.3px; color:#e6edf3}
+    .pill{
+      display:inline-block; padding:.38rem .7rem; border:1px solid var(--border);
+      border-radius:999px; margin:.25rem .35rem .25rem 0; font-size:.93rem; color:#dbeafe;
+      background: rgba(124,58,237,.10);
+    }
     ul{padding-left:1.1rem; margin:.25rem 0}
-    .footer{color:var(--muted); font-size:.9rem; margin:24px 0 40px}
     .meta{color:var(--muted)}
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:.5rem}
+    .btn{
+      display:inline-block; padding:.6rem .9rem; border-radius:12px; font-weight:600;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg,rgba(124,58,237,.18),rgba(124,58,237,.06));
+    }
+    .btn:hover{ box-shadow: var(--ring) }
+    .btn.ghost{ background:transparent }
+    footer{margin:26px 0 40px; color:var(--muted)}
+    .footer-inner{max-width:1040px; margin:0 auto; padding:0 24px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; padding:.08rem .35rem; border:1px solid var(--border); border-radius:6px; background:rgba(255,255,255,.04)}
+    /* Accesibilidad motion */
+    @media (prefers-reduced-motion: reduce){
+      .card, .btn{ transition:none }
+    }
   </style>
 
-  <!-- Schema (opcional SEO) -->
+  <!-- Schema (limpio) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -54,68 +117,78 @@
   </script>
 </head>
 <body>
-  <header>
-    <h1>Robert Andrés Paredes Garzón</h1>
-    <p class="lead">Ambato, Ecuador · Estudiante de Ingeniería de Software (4.º semestre) — UTA</p>
-    <p class="meta">Backend & Frontend · IA · Arquitectura de Datos · Web & Móvil</p>
-  </header>
-
-  <main class="grid">
-    <section class="card">
-      <h2>Sobre mí</h2>
-      <p>
-        Soy desarrollador en formación con enfoque en construir soluciones end-to-end:
-        APIs limpias y frontends usables. Intereses actuales: <strong>inteligencia artificial</strong>,
-        <strong>arquitectura de datos</strong> y <strong>desarrollo de aplicaciones web y móviles</strong>.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Stack</h2>
-      <div>
-        <span class="pill">Java</span>
-        <span class="pill">Python</span>
-        <span class="pill">SQL</span>
-        <span class="pill">HTML/CSS</span>
-        <span class="pill">Git/GitHub</span>
+  <div class="wrap">
+    <header>
+      <div class="brand">Ambato, Ecuador • Estudiante de Ingeniería de Software — UTA</div>
+      <h1>Robert Andrés Paredes Garzón</h1>
+      <p class="lead">Backend & Frontend · IA · Arquitectura de Datos · Web & Móvil</p>
+      <div class="divider"></div>
+      <div class="btns">
+        <a class="btn" href="mailto:andresparedesg.ap@gmail.com">📧 Contactar</a>
+        <a class="btn ghost" href="https://github.com/andyyyia">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/">LinkedIn</a>
       </div>
-      <p class="meta">Enfoque actual: patrones de diseño, buenas prácticas de datos y despliegues simples.</p>
-    </section>
+    </header>
 
-    <section class="card">
-      <h2>Proyectos</h2>
-      <ul>
-        <li><strong>Carta de San Valentín</strong> — mini-landing de práctica y estilizado · <a href="https://github.com/andyyyia/san_valentin">Repositorio</a></li>
-        <li><strong>Sistema de Gestión de Seguros (Equipo Creativo Web)</strong> — proyecto en equipo (enlace público pendiente)</li>
-        <li><strong>APE4 — Estructura de Datos</strong> — ejercicios/prácticas en Java · <a href="https://github.com/andyyyia/APE4_EstructuraDatos">Repositorio</a></li>
-        <li><strong>FISEI</strong> — materiales y prácticas de “Manejo y Configuración del Software” · <a href="https://github.com/andyyyia/FISEI">Repositorio</a></li>
-      </ul>
-      <p class="meta">Más repos: <a href="https://github.com/andyyyia?tab=repositories">github.com/andyyyia</a></p>
-    </section>
+    <main>
+      <section class="grid" aria-label="Contenido principal">
+        <article class="card">
+          <h2>Sobre mí</h2>
+          <p>
+            Desarrollador en formación con enfoque <em>end-to-end</em>: APIs limpias,
+            frontends usables y despliegues simples. Me mueven la
+            <strong>inteligencia artificial</strong>, la <strong>arquitectura de datos</strong>
+            y el <strong>desarrollo de aplicaciones web y móviles</strong>.
+          </p>
+        </article>
 
-    <section class="card">
-      <h2>Idiomas</h2>
-      <ul>
-        <li>Español — nativo</li>
-        <li>Inglés — B2</li>
-      </ul>
-    </section>
+        <article class="card">
+          <h2>Stack</h2>
+          <div>
+            <span class="pill">Java</span>
+            <span class="pill">Python</span>
+            <span class="pill">SQL</span>
+            <span class="pill">HTML/CSS</span>
+            <span class="pill">Git/GitHub</span>
+          </div>
+          <p class="meta">Últimamente: patrones de diseño y buenas prácticas de datos.</p>
+        </article>
 
-    <section class="card">
-      <h2>Contacto</h2>
-      <p>
-        <a href="mailto:andresparedesg.ap@gmail.com">andresparedesg.ap@gmail.com</a> ·
-        <a href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/">LinkedIn</a> ·
-        <a href="https://github.com/andyyyia">GitHub</a>
-      </p>
-    </section>
-  </main>
+        <article class="card">
+          <h2>Proyectos</h2>
+          <ul>
+            <li><strong>Carta de San Valentín</strong> — mini-landing de práctica · <a href="https://github.com/andyyyia/san_valentin">Repositorio</a></li>
+            <li><strong>Sistema de Gestión de Seguros (Equipo Creativo Web)</strong> — proyecto en equipo (enlace público pendiente)</li>
+            <li><strong>APE4 — Estructura de Datos</strong> — ejercicios/prácticas en Java · <a href="https://github.com/andyyyia/APE4_EstructuraDatos">Repositorio</a></li>
+          </ul>
+          <p class="meta">Más repos: <a href="https://github.com/andyyyia?tab=repositories">github.com/andyyyia</a></p>
+        </article>
 
-  <footer class="footer" role="contentinfo">
-    <main style="max-width:960px;margin:0 auto;padding:0 16px">
+        <article class="card">
+          <h2>Idiomas</h2>
+          <ul>
+            <li>Español — nativo</li>
+            <li>Inglés — B2</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Contacto</h2>
+          <p>
+            <a href="mailto:andresparedesg.ap@gmail.com" class="kbd">andresparedesg.ap@gmail.com</a> ·
+            <a href="https://github.com/andyyyia" class="kbd">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/andr%C3%A9s-paredes-b065b818b/" class="kbd">LinkedIn</a>
+          </p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
       <p>“Disciplina hoy, libertad mañana.”</p>
       <p class="meta">Última actualización: <span id="lu"></span></p>
-    </main>
+    </div>
   </footer>
 
   <script>
